@@ -44,7 +44,17 @@
     background-color: white;
     -webkit-box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
     -moz-box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
-    box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
+    box-shadow: 0 2px 8px 0 rgba(150, 150, 150, 0.8);
+    transition: box-shadow 0.2s ease-out;
+}
+
+.testimony:hover {
+    box-shadow: 0 2px 16px 0 rgba(204, 204, 204, 1);
+    transition: box-shadow 0.2s ease-in;
+}
+
+.testimony:hover .quote {
+    color: #4d4d4d;
 }
 
 .author-container {
