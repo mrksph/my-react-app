@@ -28,7 +28,7 @@
     margin: auto;
 }
 
-.testimoniosList {
+.testimonialsList {
     width: 100%;
     display: inline-block;
 }
@@ -36,14 +36,15 @@
 .testimony {
     vertical-align: middle;
     display: inline-block;
-    padding: 24px;
+    padding: 16px;
+    min-width: 230px;
     max-width: 300px;
     max-height: 340px;
-    margin: 0 16px;
+    margin: 16px;
     background-color: white;
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(204, 204, 204, 1);
-    -moz-box-shadow: 0px 2px 5px 0px rgba(204, 204, 204, 1);
-    box-shadow: 0px 2px 5px 0px rgba(204, 204, 204, 1);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
+    -moz-box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
+    box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
 }
 
 .author-container {
@@ -59,6 +60,7 @@
 }
 
 .testimony .quote {
+    color: #6d6d6d;
     text-align: left;
     min-height: 70px;
 }
@@ -72,15 +74,33 @@
 }
 
 .footer {
-  position: absolute;
-  width: 100%;
-  background-color: black;
-  color: white;
-  bottom: 0;
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+    background-color: #222222;
+    color: white;
+    left: 0;
+    padding: 16px 0;
+    bottom: 0;
 }
 
 .footer ul {
-  list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    list-style-type: none;
+}
+
+.footer .linksList {
+    padding-bottom: 8px;
+}
+
+.footer .linksList a {
+    margin-right: 12px;
+}
+
+.footer p {
+    margin: 0;
 }
 
 @keyframes App-logo-spin {

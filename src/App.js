@@ -1,11 +1,29 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TestimonialsList from "./TestimonialsList";
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {date: Date()};
+        this.state = {
+            date: Date(),
+            testimonials: [
+                {
+                    quote: "Estamos empezando a usar React en nuestra empresa y por ahora nos esta gustando bastante. Es bastante fácil de aprender y nos aporta muchas ventajas.",
+                    logo: logo,
+                    author: "Perelli Peperoni"
+                }, {
+                    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida lorem sapien, vulputate vestibulum lorem suscipit eget.",
+                    logo: logo,
+                    author: "Ipsum Lorem"
+                }, {
+                    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In odio ligula, tempor sit amet lorem nec, lobortis scelerisque risus.",
+                    logo: logo,
+                    author: "Laurin Hills"
+                }
+            ]
+        };
     }
 
     componentDidMount() {
@@ -38,58 +56,26 @@ class App extends Component {
                         <h1 className="title">
                             Practicando con React
                         </h1>
-
                         <p className="subtitle">
                             Para reanudar lo que estaba hecho voy a empezar por lo básico, algo de HTML y CSS para luego
                             sacar a un elemento propio que será mucho mas facil de reutilizar.
                         </p>
 
                     </div>
-                    <div className="testimoniosList">
 
-                        <div className="testimony">
-                            <p className="quote">React es un framework bastante bueno para hacer apps web</p>
+                    <h2>Testimonios</h2>
+                    <TestimonialsList testimonials={this.state.testimonials}/>
+                </div>
 
-                            <div className="author-container">
-                                <img src={logo}/>
-                                <p className="author">Pepito Perez</p>
-                            </div>
+                <div className="footer">
+                    <div className="linksList">
+                        <div>
+                            <a>Inicio</a>
+                            <a>Sobre Nosotros</a>
+                            <a>Contacto</a>
                         </div>
-
-                        <div className="testimony">
-                            <p className="quote">Tambien sirve para hacer apps hibridas. De hecho tengo una!</p>
-                            <div className="author-container">
-                                <img src={logo}/>
-                                <p className="author">El Grillo</p>
-                            </div>
-                        </div>
-
-                        <div className="testimony">
-                            <p className="quote">Es un poco complicado de entender al principio si no se practica lo
-                                suficiente pero a la
-                                larga se nota sus ventajas sobre otros frameworks.</p>
-                            <div className="author-container">
-                                <img src={logo}/>
-                                <p className="author">Bello Cual Camello</p>
-                            </div>
-                        </div>
-
                     </div>
-
-
-                    <div className="footer">
-                        <div className="linksList">
-                        <ul>
-                            <li>
-                                Inicio
-                            </li>
-                            <li>
-                                Contacto
-                            </li>
-                        </ul>
-                        </div>
-                        <p>Todos los derechos reservados. 1297-2019</p>
-                    </div>
+                    <p>Todos los derechos reservados. 1640-2019</p>
                 </div>
             </div>
         );
