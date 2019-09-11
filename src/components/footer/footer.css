@@ -9,19 +9,18 @@
     bottom: 0;
 }
 
-.footer ul {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    padding-inline-start: 0;
-    list-style-type: none;
-}
-
-.footer .linksList {
+.footer .links-list {
     padding-bottom: 8px;
+    margin-bottom: 16px;
 }
 
-.footer .linksList a {
+.footer .links-list a {
     margin-right: 12px;
+}
+
+.footer .links-list a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .footer p {
