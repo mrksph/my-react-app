@@ -14,6 +14,7 @@ class Login extends Component {
 
 	render() {
 		return <div className="login-container">
+			<h2>Login Page</h2>
 			<form className="login-form" onSubmit={this.handleSubmit}>
 				<input type="text" placeholder="Email" onChange={this.handleChange} id="email" value={this.state.email}/>
 				<input type="text" placeholder="Contraseña" onChange={this.handleChange} id="password"

@@ -51,49 +51,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Header/>
-
-				<div className="practice">
-					<div className="intro">
-						<h2 className="title">
-							Practicando con React
-						</h2>
-
-						<p className="subtitle">
-							Para reanudar lo que estaba hecho voy a empezar por lo básico, algo de HTML y CSS dentro del mismo App.js
-							para luego sacar a un componente propio que será mucho mas facil de reutilizar a lo largo de la
-							aplicación.
-						</p>
-
-						<h3>Testimonios</h3>
-
-						<TestimonialsList testimonials={this.state.testimonials}/>
-					</div>
-				</div>
-
-				<div className="practice">
-					<div className="intro">
-						<h2 className="title">
-							Seguimos practicando con React
-						</h2>
-
-						<p className="subtitle">
-							Como segunda practica vamos a hacer un pagina de login para aprender a utilizar el Router de React.
-							Deberia de ser algo sencillo primeramente, que simplemente alterne entre dos paginas al hacer click en un
-							enlace. Más adelante añadiremos la funcionalidad de Login como tal.
-						</p>
-
-						<h3>Login</h3>
-
-						<p>
-							Este login es simbólico, realmente no se realiza peticion alguna a un servidor. Simplemente se valida que
-							los campos no estén vacíos y que tengan mas de 3 carácteres.
-						</p>
-
-						<Login childProps={this.state.nav}/>
-					</div>
-				</div>
-
-				<Footer/>
+				<Login childProps={this.state.nav}/>
 			</div>
 		);
 	}
