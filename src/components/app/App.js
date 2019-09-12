@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import logo from '../../logo.svg';
 import './App.css';
 
-import TestimonialsList from "../testimonials-list";
+import TestimonialsList from "../todo-list";
 import Login from "../login"
 import Footer from "../footer";
 import Header from "../header";
