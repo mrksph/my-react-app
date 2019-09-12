@@ -4,13 +4,20 @@ import './App.css';
 
 import TestimonialsList from "../testimonials-list";
 import Login from "../login"
-import Footer from "../footer/footer-view";
+import Footer from "../footer";
+import Header from "../header";
 
 class App extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
-			date: Date(),
+			nav: {
+				history: props.history,
+				location: props.location,
+				match: props.match
+			},
+			isAuthenticated: false,
 			testimonials: [
 				{
 					quote: "Estamos empezando a usar React en nuestra empresa y por ahora nos esta gustando bastante. Es bastante fácil de aprender y nos aporta muchas ventajas.",
@@ -29,30 +36,21 @@ class App extends Component {
 		};
 	}
 
-	componentDidMount() {
-		this.timerID = setInterval(
-			() => this.tick(),
-			1000
-		);
-	}
-
-	componentWillUnmount() {
-		clearInterval(this.timerID);
-	}
-
-	tick() {
+	userHasAuthenticated = authenticated => {
 		this.setState({
-			date: Date()
-		});
+			isAuthenticated: authenticated
+		})
 	}
 
 	render() {
+		const childProps = {
+			isAuthenticated: this.state.isAuthenticated,
+			userHasAuthenticated: this.userHasAuthenticated
+		}
+
 		return (
 			<div className="App">
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo"/>
-					<h1 className="App-title">Welcome to React</h1>
-				</header>
+				<Header/>
 
 				<div className="practice">
 					<div className="intro">
@@ -91,7 +89,7 @@ class App extends Component {
 							los campos no estén vacíos y que tengan mas de 3 carácteres.
 						</p>
 
-						<Login/>
+						<Login childProps={this.state.nav}/>
 					</div>
 				</div>
 

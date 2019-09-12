@@ -1,28 +1,17 @@
 import React from 'react';
 
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import Index from "../components/login";
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
 import App from "../components/app/App";
+import Home from "../components/home/home-view";
 
 function AppRouter() {
 	return (
 		<Router>
-			<div>
-				<nav>
-					<ul>
-						<li>
-							<Link to="/">Home</Link>
-						</li>
-
-						<li>
-							<Link to="/login">Login</Link>
-						</li>
-					</ul>
-				</nav>
-
+			<Switch>
 				<Route path="/" exact component={App}/>
-				<Route path="/login" component={Index}/>
-			</div>
+				<Route path="/home" component={Home}/>
+			</Switch>
 		</Router>
 	);
 }
