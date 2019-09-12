@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './login.css';
-import {BrowserRouter, Link, Redirect} from "react-router-dom";
 
 class Login extends Component {
 
@@ -37,7 +36,8 @@ class Login extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.props.childProps.history.push("/home");
+		//this.props.childProps.history.push("/home");
+		alert("LOG IN OK");
 	}
 }
 

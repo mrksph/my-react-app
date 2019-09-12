@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TestimonyItem from "../testimony-item";
+import TestimonyItem from "../todo-item";
 
 class TestimonialsList extends Component {
 	render() {
