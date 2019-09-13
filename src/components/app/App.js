@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import logo from '../../logo.svg';
 import './App.css';
 
-import TestimonialsList from "../todo-list";
+import TodoList from "../todo-list";
 import Login from "../login"
-import Footer from "../footer";
+import Register from "../register";
 import Header from "../header";
+import Footer from "../footer";
 
 class App extends Component {
 	constructor(props) {
@@ -51,7 +52,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Header/>
-				<Login childProps={this.state.nav}/>
+				<Login/>
 			</div>
 		);
 	}
