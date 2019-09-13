@@ -1,7 +1,39 @@
-.home-container {
+.content-container {
+    height: calc(100% - 104px);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* align items in Main Axis */
+    align-items: stretch; /* align items in Cross Axis */
+    align-content: stretch; /* Extra space in Cross Axis */
+}
+.content-container .item{
+    flex-grow: 1;
     height: 100%;
+    background: red;
 }
 
-.content-container {
-    height: 100%;
+.create-container, .list-container, .details-container {
+    border: 1px solid #222222;
+}
+
+.create-form {
+    text-align: center;
+    display: inline-block;
+}
+
+.content-container .list-container {
+    overflow-y: auto;
+}
+
+.create-form input,
+.create-form button {
+    display: block;
+}
+
+.todo-item {
+    background-color: white;
+    border: 1px solid black;
+    margin: 8px 16px;
+    padding: 8px 16px;
+    box-shadow: 0 1px 10px 0 blue;
 }

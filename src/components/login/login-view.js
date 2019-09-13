@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './login.css';
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class Login extends Component {
 
@@ -9,12 +9,20 @@ class Login extends Component {
 
 		this.state = {
 			email: "",
-			password: ""
+			password: "",
+			isLogged: false
 		};
 	}
 
 	render() {
+		const isLogged = this.state.isLogged;
+
+		if (isLogged) {
+			return <Redirect to="/home"/>;
+		}
+
 		return (
+
 			<div className="login-container">
 				<h2>Login Page</h2>
 				<form className="login-form" onSubmit={this.handleSubmit}>
@@ -50,7 +58,8 @@ class Login extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		// Check if username and password are valid
-		alert("LOG IN OK");
+		alert("LOGGING IN");
+		this.setState({isLogged: true});
 	}
 }
 
