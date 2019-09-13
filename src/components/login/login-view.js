@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './login.css';
+import {Link} from "react-router-dom";
 
 class Login extends Component {
 
@@ -13,18 +14,26 @@ class Login extends Component {
 	}
 
 	render() {
-		return <div className="login-container">
-			<h2>Login Page</h2>
-			<form className="login-form" onSubmit={this.handleSubmit}>
-				<input type="text" placeholder="Email" onChange={this.handleChange} id="email" value={this.state.email}/>
-				<input type="password" placeholder="Contraseña" onChange={this.handleChange} id="password"
-							 value={this.state.password}/>
+		return (
+			<div className="login-container">
+				<h2>Login Page</h2>
+				<form className="login-form" onSubmit={this.handleSubmit}>
+					<input type="text"
+								 placeholder="Email"
+								 onChange={this.handleChange}
+								 id="email"
+								 value={this.state.email}/>
+					<input type="password"
+								 placeholder="Contraseña"
+								 onChange={this.handleChange}
+								 id="password"
+								 value={this.state.password}/>
 
-				<button type="submit" disabled={!this.validateForm()}>Entrar</button>
-
-				<p className="link-to-register" onClick={this.handleLinkToRegister}>No tienes cuenta? Registrate</p>
-			</form>
-		</div>;
+					<button type="submit" disabled={!this.validateForm()}>Entrar</button>
+				</form>
+				<Link className="link-to-register" to="/register">No tienes cuenta? Registrate</Link>
+			</div>
+		);
 	}
 
 	validateForm() {

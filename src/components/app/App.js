@@ -7,6 +7,7 @@ import Login from "../login"
 import Register from "../register";
 import Header from "../header";
 import Footer from "../footer";
+import AppRouter from "../../routes/Routes";
 
 class App extends Component {
 	constructor(props) {
@@ -52,7 +53,8 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Header/>
-				<Login/>
+				<AppRouter/>
+				<Footer/>
 			</div>
 		);
 	}

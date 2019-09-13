@@ -8,5 +8,5 @@ import AppRouter from "./routes/Routes";
 import Home from "./components/home";
 
 
-ReactDOM.render(<AppRouter/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
 registerServiceWorker();
