@@ -40,9 +40,6 @@ class Login extends Component {
 		return this.state.email.length > 0 && this.state.password.length > 0;
 	}
 
-	handleLinkToRegister = event => {
-		alert("LETS GO TO REGISTER PAGE NOW");
-	}
 
 	handleChange = event => {
 		this.setState({
@@ -52,7 +49,7 @@ class Login extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		//this.props.childProps.history.push("/home");
+		// Check if username and password are valid
 		alert("LOG IN OK");
 	}
 }
