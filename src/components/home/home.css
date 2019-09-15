@@ -9,7 +9,7 @@
 }
 
 .content-container .item {
-    flex-grow: 1;
+    flex: 1;
     height: 100%;
 }
 
@@ -31,4 +31,14 @@
 .create-form input,
 .create-form button {
     display: block;
+}
+
+
+.details-container .details-todo {
+    text-align: initial;
+    margin: 16px;
+    padding: 8px;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
+    -moz-box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
+    box-shadow: 0 2px 8px 0 rgba(150, 150, 150, 0.8);
 }

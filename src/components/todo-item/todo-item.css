@@ -30,35 +30,16 @@
     height: 100%;
 }
 
-.author-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: inline-block;
-    width: 100%;
-    padding: 0 16px 16px;
-    text-align: right;
-}
-
-.author-container img {
-    vertical-align: middle;
-}
-
-.author-container p {
-    display: inline-block;
-}
-
 .todo-item .title {
     color: #6d6d6d;
     text-align: left;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 16px;
 }
 
-.todo-item .author {
-    font-weight: 800;
-}
-
-.todo-item img {
-    max-width: 48px;
+.todo-item .description {
+    line-height: 1.21;
 }
 
 .todo-item .title,
@@ -75,6 +56,6 @@
 }
 
 .selected-box.is-selected {
-    background-color: red;
+    background-color: #1b1a2769;
 }
 

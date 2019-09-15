@@ -10,6 +10,7 @@ class Home extends Component {
         this.state = {
             title: "",
             description: "",
+            selected: {},
             todos: [
                 {
                     id: "",
@@ -49,6 +50,7 @@ class Home extends Component {
     }
 
     handleTodoClick(event) {
+
     }
 
     render() {
@@ -69,12 +71,17 @@ class Home extends Component {
                     <h2>List</h2>
                     {this.state.todos.map((item, index) => {
                         return (
-                           <TodoItem key={index} todo={item}/>
+                           <TodoItem key={index} todo={item} onClick={this.handleTodoClick}/>
                         )
                     })}
                 </div>
                 <div className="item details-container">
                     <h2>Details</h2>
+                    <div className="details-todo">
+                        <p>Title</p>
+                        <p>Description</p>
+                        <p>Created at: 22/10/2019</p>
+                    </div>
                 </div>
             </div>
         );
