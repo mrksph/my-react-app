@@ -1,8 +1,6 @@
 import React, {Component} from "react"
-import {Link} from 'react-router-dom'
-import Header from "../header";
-import Footer from "../footer";
 import './home.css';
+import TodoItem from "../todo-item";
 
 class Home extends Component {
 
@@ -10,43 +8,47 @@ class Home extends Component {
         super(props);
 
         this.state = {
-            form: {
-                title: '',
-                description: ''
-            },
+            title: "",
+            description: "",
             todos: [
                 {
+                    id: "",
                     title: "HOOOLAA",
-                    description: " HOOOAL"
+                    description: " HOOOAL",
+                    isSelected: false
                 }
             ]
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.createTodo = this.createTodo.bind(this);
+        this.handleTodoClick = this.handleTodoClick.bind(this);
     }
 
     createTodo(event) {
         event.preventDefault();
-        const todosa = this.state.todos;
+
+        const todos = this.state.todos;
         const myObj = {
-            title: this.state.form.title,
-            description: this.state.form.description
+            title: this.state.title,
+            description: this.state.description,
+            isSelected: false
         };
-        this.setState({todos: [todosa, ...myObj]});
+
+        this.setState({todos: [...todos, myObj]});
     }
 
     handleInputChange(event) {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
-
         const name = target.name;
 
         this.setState({
-            form: {
-                [name]: value
-            }
+            [name]: value
         });
+    }
+
+    handleTodoClick(event) {
     }
 
     render() {
@@ -55,30 +57,24 @@ class Home extends Component {
                 <div className="item create-container">
                     <h2>Create</h2>
                     <form className="create-form" onSubmit={this.createTodo}>
-                        <input type="text" placeholder="Titulo" name="title" value={this.state.form.title}
+                        <input type="text" placeholder="Titulo" name="title" value={this.state.title}
                                onChange={this.handleInputChange}/>
-                        <textarea placeholder="Descripción"/>
-                        <button> Crear</button>
+                        <textarea placeholder="Descripción" name="description" value={this.state.description}
+                                  onChange={this.handleInputChange}/>
+
+                        <button>Crear</button>
                     </form>
                 </div>
                 <div className="item list-container">
                     <h2>List</h2>
-                    <div className="">
-
-                        {this.state.todos.map((item, index) => {
-                            return (
-                                <div className="todo-item" key={index}>
-                                    <p>{item.title}</p>
-                                    <p>{item.description}</p>
-                                </div>
-                            )
-                        })}
-
-                    </div>
+                    {this.state.todos.map((item, index) => {
+                        return (
+                           <TodoItem key={index} todo={item}/>
+                        )
+                    })}
                 </div>
                 <div className="item details-container">
                     <h2>Details</h2>
-
                 </div>
             </div>
         );

@@ -1,5 +1,5 @@
 
-.testimony {
+.todo-item {
     position: relative;
     vertical-align: middle;
     display: inline-block;
@@ -16,12 +16,12 @@
     transition: box-shadow 0.2s ease-out;
 }
 
-.testimony:hover {
+.todo-item:hover {
     box-shadow: 0 2px 16px 0 rgba(204, 204, 204, 1);
     transition: box-shadow 0.2s ease-in;
 }
 
-.testimony:hover .quote {
+.todo-item:hover .title {
     color: #4d4d4d;
 }
 
@@ -48,16 +48,16 @@
     display: inline-block;
 }
 
-.testimony .quote {
+.todo-item .title {
     color: #6d6d6d;
     text-align: left;
     min-height: 70px;
 }
 
-.testimony .author {
+.todo-item .author {
     font-weight: 800;
 }
 
-.testimony img {
+.todo-item img {
     max-width: 48px;
 }

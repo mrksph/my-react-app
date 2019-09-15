@@ -6,7 +6,8 @@
     align-items: stretch; /* align items in Cross Axis */
     align-content: stretch; /* Extra space in Cross Axis */
 }
-.content-container .item{
+
+.content-container .item {
     flex-grow: 1;
     height: 100%;
     background: red;
@@ -24,6 +25,17 @@
 .content-container .list-container {
     overflow-y: auto;
 }
+
+.content-container .list-container .todo-item .is-selected {
+    height: 20px;
+    width: 20px;
+    border: 1px solid gray;
+}
+
+.content-container .list-container .todo-item .is-selected .red {
+    background-color: red;
+}
+
 
 .create-form input,
 .create-form button {
