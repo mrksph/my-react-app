@@ -13,8 +13,8 @@ class Home extends Component {
             todos: [
                 {
                     id: "",
-                    title: "HOOOLAA",
-                    description: " HOOOAL",
+                    title: "Ir al Supermercado",
+                    description: "Faltan huevos, hay que comprar manzanas y traer unos helados sabor mango.",
                     isSelected: false
                 }
             ]

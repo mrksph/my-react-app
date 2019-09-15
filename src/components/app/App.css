@@ -1,9 +1,7 @@
 .App {
-    background-color: #e0e4ff;
     display: inline-block;
     min-height: 100%;
     min-width: 100%;
-    text-align: center;
 }
 
 .App-intro {

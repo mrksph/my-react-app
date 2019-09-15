@@ -6,7 +6,7 @@ class TodoItem extends Component {
         super(props);
 
         this.state = {
-            todo : {
+            todo: {
                 ...this.props.todo
             }
         };
@@ -26,8 +26,8 @@ class TodoItem extends Component {
     render() {
         return <div className="todo-item" onClick={this.handleOnClick}>
             <p className="title">{this.state.todo.title}</p>
+            <div className={"selected-box" + (this.state.todo.isSelected ? ' is-selected' : '')}></div>
             <p className="description">{this.state.todo.description}</p>
-            <div className={"is-selected" + (this.state.todo.isSelected ? 'red' : '')}></div>
         </div>
 
     }

@@ -2,11 +2,11 @@
 .todo-item {
     position: relative;
     vertical-align: middle;
+    text-align: initial;
     display: inline-block;
     padding: 16px;
     min-width: 230px;
     max-width: 300px;
-    min-height: 185px;
     max-height: 340px;
     margin: 16px;
     background-color: white;
@@ -51,7 +51,6 @@
 .todo-item .title {
     color: #6d6d6d;
     text-align: left;
-    min-height: 70px;
 }
 
 .todo-item .author {
@@ -61,3 +60,21 @@
 .todo-item img {
     max-width: 48px;
 }
+
+.todo-item .title,
+.todo-item .selected-box {
+    display: inline-block;
+}
+
+.todo-item .selected-box {
+    float: right;
+    height: 20px;
+    width: 20px;
+    border: 1px solid gray;
+    border-radius: 20px;
+}
+
+.selected-box.is-selected {
+    background-color: red;
+}
+
