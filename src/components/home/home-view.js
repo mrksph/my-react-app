@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import './home.css';
 import TodoItem from "../todo-item";
+import TodoDetails from "../todo-details/todo-details-view";
 
 class Home extends Component {
 
@@ -10,16 +11,16 @@ class Home extends Component {
 		this.state = {
 			title: "",
 			description: "",
-			selected: '',
+			selected: -1,
 			todos: [
 				{
-					id: 1,
+					id: 0,
 					title: "Ir al Supermercado",
 					description: "Faltan huevos, hay que comprar manzanas y traer unos helados sabor mango.",
 					isSelected: false
 				},
 				{
-					id: 2,
+					id: 1,
 					title: "Presentacion ",
 					description: "Hacer cosas del tablero. Intentar mejorarlo a ver cuanto tiempo tarda.",
 					isSelected: false
@@ -29,13 +30,13 @@ class Home extends Component {
 
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.createTodo = this.createTodo.bind(this);
-		this.handleTest = this.handleTest.bind(this);
+		this.handleActionTodoItem = this.handleActionTodoItem.bind(this);
 		this.handleDetailsClick = this.handleDetailsClick.bind(this);
 	}
 
-	handleTest(data) {
+	handleActionTodoItem(data) {
 		this.setState({
-			selected: data.state.todo.id
+			selected: data.props.id
 		});
 	}
 
@@ -88,21 +89,17 @@ class Home extends Component {
 						{
 							this.state.todos.map((item, index) => {
 								return (
-									<TodoItem key={index} id={index} todo={item} test={this.handleTest}/>
+									<TodoItem key={index} id={index} todo={item} action={this.handleActionTodoItem} isSelected={this.state.selected === item.id}/>
 								)
-							})}
+							})
+						}
 					</div>
 				</div>
 				<div className="item details-container">
 					<h2>Details</h2>
 					<div className="details-todo">
-						<p>Title</p>
-						<p>Description</p>
-						<p>Created at: 22/10/2019</p>
+						<TodoDetails todo={this.state.todos.find(item => item.id === this.state.selected)}/>
 					</div>
-					{
-						<TodoItem todo={this.state.todos.find(item => item.id === this.state.selected)}/>
-					}
 				</div>
 			</div>
 		);

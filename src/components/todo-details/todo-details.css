@@ -1,0 +1,65 @@
+
+.todo-item {
+    position: relative;
+    vertical-align: middle;
+    text-align: initial;
+    display: inline-block;
+    padding: 16px;
+    width: 100%;
+    max-height: 340px;
+    margin-bottom: 16px;
+    background-color: white;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
+    -moz-box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
+    box-shadow: 0 2px 8px 0 rgba(150, 150, 150, 0.8);
+    transition: box-shadow 0.2s ease-out;
+}
+
+.todo-item:hover {
+    box-shadow: 0 2px 16px 0 rgba(204, 204, 204, 1);
+    transition: box-shadow 0.2s ease-in;
+}
+
+.todo-item:hover .title {
+    color: #4d4d4d;
+}
+
+.inner-container {
+    position: relative;
+    height: 100%;
+}
+
+.todo-item .title {
+    color: #6d6d6d;
+    text-align: left;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.todo-item .description {
+    line-height: 1.21;
+}
+
+.todo-item .title,
+.todo-item .selected-box {
+    display: inline-block;
+}
+
+.todo-item .selected-box {
+    float: right;
+    height: 20px;
+    width: 20px;
+    border: 1px solid gray;
+    border-radius: 20px;
+}
+
+.todo-item .selected-box:hover {
+    cursor: pointer;
+    background-color: #1b1a2769;
+}
+
+.selected-box.is-selected {
+    background-color: #1b1a2769;
+}
+
