@@ -44,7 +44,9 @@ class Home extends Component {
 		event.preventDefault();
 
 		const todos = this.state.todos;
+
 		const myObj = {
+			id: todos.length,
 			title: this.state.title,
 			description: this.state.description,
 			isSelected: false
