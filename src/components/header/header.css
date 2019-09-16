@@ -1,11 +1,20 @@
-.App-header {
+.app-header {
     background-color: #222;
     padding: 20px;
     color: white;
-    text-align: center;
+    text-align: right;
 }
 
-.App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
+.app-title, .logout-container {
+    display: inline-block;
+}
+
+.logout-container img {
+    display: inline-block;
+    width: 40px;
+    vertical-align: middle;
+}
+
+.logout-container p {
+    display: inline-block;
 }

@@ -5,9 +5,11 @@ import './header.css';
 class Header extends Component {
 
 	render() {
-		return <header className="App-header">
-			<img src={logo} className="App-logo" alt="logo"/>
-			<h1 className="App-title">Welcome to Simple Todo React !</h1>
+		return <header className="app-header">
+			<div className="logout-container">
+				<img src={logo}/>
+				<p>Marcos Stival</p>
+			</div>
 		</header>
 	}
 

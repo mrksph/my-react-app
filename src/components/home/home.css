@@ -1,25 +1,23 @@
 .content-container {
-    height: calc(100% - 104px);
     display: flex;
     text-align: center;
     flex-direction: row;
     justify-content: flex-start; /* align items in Main Axis */
     align-items: stretch; /* align items in Cross Axis */
     align-content: stretch; /* Extra space in Cross Axis */
+    margin: 16px;
 }
 
 .content-container .item {
     flex: 1;
     height: 100%;
-}
-
-.create-container, .list-container, .details-container {
-    border: 1px solid #222222;
+    padding: 16px;
 }
 
 .create-form {
     text-align: center;
     display: inline-block;
+    width: 100%;
 }
 
 .content-container .list-container {
@@ -27,17 +25,38 @@
     overflow-y: auto;
 }
 
-
-.create-form input,
-.create-form button {
-    display: block;
+.content-container .list-container .todo-list {
+    padding: 16px;
 }
 
+.create-form input,
+.create-form textarea {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 8px;
+}
+
+.create-form input {
+    margin-bottom: 12px;
+}
+
+.create-form textarea {
+    margin-bottom: 16px;
+}
+
+.create-form button {
+    padding: 8px;
+    float: left;
+}
+
+.create-container .form-container {
+    padding: 16px;
+}
 
 .details-container .details-todo {
     text-align: initial;
     margin: 16px;
-    padding: 8px;
+    padding: 16px;
     -webkit-box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
     -moz-box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
     box-shadow: 0 2px 8px 0 rgba(150, 150, 150, 0.8);
