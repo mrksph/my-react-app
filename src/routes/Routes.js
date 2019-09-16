@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import App from "../components/app/App";
 import Home from "../components/home/home-view";
 import Register from "../components/register";
 import Login from "../components/login";

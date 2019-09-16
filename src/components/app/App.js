@@ -2,11 +2,7 @@ import React, {Component} from 'react';
 import logo from '../../logo.svg';
 import './App.css';
 
-import TodoList from "../todo-list";
-import Login from "../login"
-import Register from "../register";
 import Header from "../header";
-import Footer from "../footer";
 import AppRouter from "../../routes/Routes";
 
 class App extends Component {
@@ -45,10 +41,6 @@ class App extends Component {
 	}
 
 	render() {
-		const childProps = {
-			isAuthenticated: this.state.isAuthenticated,
-			userHasAuthenticated: this.userHasAuthenticated
-		}
 
 		return (
 			<div className="App">

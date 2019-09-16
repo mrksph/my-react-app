@@ -10,12 +10,18 @@ class Home extends Component {
 		this.state = {
 			title: "",
 			description: "",
-			selected: {},
+			selected: '',
 			todos: [
 				{
-					id: "",
+					id: 1,
 					title: "Ir al Supermercado",
 					description: "Faltan huevos, hay que comprar manzanas y traer unos helados sabor mango.",
+					isSelected: false
+				},
+				{
+					id: 2,
+					title: "Presentacion ",
+					description: "Hacer cosas del tablero. Intentar mejorarlo a ver cuanto tiempo tarda.",
 					isSelected: false
 				}
 			]
@@ -23,7 +29,14 @@ class Home extends Component {
 
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.createTodo = this.createTodo.bind(this);
-		this.handleTodoClick = this.handleTodoClick.bind(this);
+		this.handleTest = this.handleTest.bind(this);
+		this.handleDetailsClick = this.handleDetailsClick.bind(this);
+	}
+
+	handleTest(data) {
+		this.setState({
+			selected: data.state.todo.id
+		});
 	}
 
 	createTodo(event) {
@@ -50,8 +63,7 @@ class Home extends Component {
 		});
 	}
 
-	handleTodoClick(event) {
-
+	handleDetailsClick(event) {
 	}
 
 	render() {
@@ -73,11 +85,12 @@ class Home extends Component {
 				<div className="item list-container">
 					<h2>List</h2>
 					<div className="todo-list">
-						{this.state.todos.map((item, index) => {
-							return (
-								<TodoItem key={index} todo={item} onClick={this.handleTodoClick}/>
-							)
-						})}
+						{
+							this.state.todos.map((item, index) => {
+								return (
+									<TodoItem key={index} id={index} todo={item} test={this.handleTest}/>
+								)
+							})}
 					</div>
 				</div>
 				<div className="item details-container">
@@ -87,6 +100,9 @@ class Home extends Component {
 						<p>Description</p>
 						<p>Created at: 22/10/2019</p>
 					</div>
+					{
+						<TodoItem todo={this.state.todos.find(item => item.id === this.state.selected)}/>
+					}
 				</div>
 			</div>
 		);

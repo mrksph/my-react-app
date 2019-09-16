@@ -10,11 +10,11 @@ class TodoItem extends Component {
                 ...this.props.todo
             }
         };
-
         this.handleOnClick = this.handleOnClick.bind(this);
     }
 
     handleOnClick(event) {
+        this.props.test(this);
         this.setState({
             todo: {
                 ...this.state.todo,
