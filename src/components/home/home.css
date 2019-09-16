@@ -11,7 +11,6 @@
 .content-container .item {
     flex: 1;
     height: 100%;
-    padding: 16px;
 }
 
 .create-form {
