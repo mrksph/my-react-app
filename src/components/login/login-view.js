@@ -18,7 +18,7 @@ class Login extends Component {
 		const isLogged = this.state.isLogged;
 
 		if (isLogged) {
-			return <Redirect to="/home"/>;
+			return <Redirect to="/"/>;
 		}
 
 		return (
@@ -58,8 +58,6 @@ class Login extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		// Check if username and password are valid
-		alert("LOGGING IN");
-		this.setState({isLogged: true});
 	}
 }
 
