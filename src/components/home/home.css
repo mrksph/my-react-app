@@ -5,7 +5,7 @@
     justify-content: flex-start; /* align items in Main Axis */
     align-items: stretch; /* align items in Cross Axis */
     align-content: stretch; /* Extra space in Cross Axis */
-    margin: 16px;
+    padding: 16px;
 }
 
 .content-container .item {
@@ -17,6 +17,8 @@
     text-align: center;
     display: inline-block;
     width: 100%;
+    padding: 16px;
+    box-shadow: 0 0 8px 0 rgba(150, 150, 150, 0.8);
 }
 
 .content-container .list-container {
@@ -56,7 +58,5 @@
     text-align: initial;
     margin: 16px;
     padding: 16px;
-    -webkit-box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
-    -moz-box-shadow: 0 2px 5px 0 rgba(204, 204, 204, 1);
-    box-shadow: 0 2px 8px 0 rgba(150, 150, 150, 0.8);
+    box-shadow: 0 0 8px 0 rgba(150, 150, 150, 0.8);
 }

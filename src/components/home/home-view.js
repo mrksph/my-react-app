@@ -36,6 +36,7 @@ class Home extends Component {
 			isSelected: false
 		};
 
+		this.setState({title: '', description: ''});
 		this.setState({todos: [...todos, myObj]});
 	}
 
