@@ -70,6 +70,9 @@ class Home extends Component {
 	}
 
 	render() {
+		const detailsItem = this.state.todos.find(item => item.id === this.state.selected);
+
+
 		return (
 			<div className="content-container">
 				<div className="item create-container">
@@ -101,7 +104,7 @@ class Home extends Component {
 				<div className="item details-container">
 					<h2>Details</h2>
 					<div className="details-todo">
-						<TodoDetails todo={this.state.todos.find(item => item.id === this.state.selected)}/>
+						<TodoDetails todo={detailsItem}/>
 					</div>
 				</div>
 			</div>
