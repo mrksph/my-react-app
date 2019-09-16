@@ -75,8 +75,8 @@ class Home extends Component {
 				<div className="item create-container">
 					<h2>Create</h2>
 					<div className="form-container">
-						<form className="create-form" onSubmit={this.createTodo}>
-							<input type="text" placeholder="Titulo" name="title" value={this.state.title}
+						<form className="create-form" onSubmit={this.createTodo} autoComplete="off">
+							<input type="text" placeholder="Titulo" autoComplete="off" name="title" value={this.state.title}
 										 onChange={this.handleInputChange}/>
 							<textarea placeholder="Descripción" name="description" value={this.state.description}
 												onChange={this.handleInputChange}/>
@@ -91,7 +91,8 @@ class Home extends Component {
 						{
 							this.state.todos.map((item, index) => {
 								return (
-									<TodoItem key={index} id={index} todo={item} action={this.handleActionTodoItem} isSelected={this.state.selected === item.id}/>
+									<TodoItem key={index} id={index} todo={item} action={this.handleActionTodoItem}
+														isSelected={this.state.selected === item.id}/>
 								)
 							})
 						}

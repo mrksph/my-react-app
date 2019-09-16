@@ -58,3 +58,7 @@
     text-align: initial;
     margin: 16px;
 }
+
+input[name="hidden"] {
+    display: none;
+}
