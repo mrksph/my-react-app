@@ -6,7 +6,8 @@ const todos = (state = [], action) => {
 				{
 					id: action.id,
 					title: action.title,
-					description: action.title
+					description: action.description,
+					isSelected: action.isSelected
 				}
 			]
 		default:

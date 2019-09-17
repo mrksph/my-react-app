@@ -26,20 +26,7 @@ class Home extends Component {
 			title: "",
 			description: "",
 			selected: -1,
-			todos: [
-				{
-					id: 0,
-					title: "Ir al Supermercado",
-					description: "Faltan huevos, hay que comprar manzanas y traer unos helados sabor mango.",
-					isSelected: false
-				},
-				{
-					id: 1,
-					title: "Presentacion ",
-					description: "Hacer cosas del tablero. Intentar mejorarlo a ver cuanto tiempo tarda.",
-					isSelected: false
-				}
-			]
+			todos: []
 		};
 
 		this.handleInputChange = this.handleInputChange.bind(this);
@@ -48,23 +35,28 @@ class Home extends Component {
 	}
 
 	handleActionTodoItem(data) {
-		this.setState({
-			selected: data.props.id
-		});
+		if (this.state.selected !== data.props.id) {
+			this.setState({
+				selected: data.props.id
+			});
+		} else {
+			this.setState({
+				selected: -1
+			});
+		}
 	}
 
 	createTodo(event) {
 		event.preventDefault();
 
-	//	const todos = this.state.todos;
-
 		const myObj = {
 			title: this.state.title,
 			description: this.state.description
 		};
+
 		this.props.createTodo(myObj);
+
 		this.setState({title: '', description: ''});
-		//this.setState({todos: [...todos, myObj]});
 	}
 
 	handleInputChange(event) {
@@ -80,7 +72,7 @@ class Home extends Component {
 	render() {
 		document.home = this;
 
-		const detailsItem = this.state.todos.find(item => item.id === this.state.selected);
+		const detailsItem = this.props.todos.find(item => item.id === this.state.selected);
 
 		return (
 			<div className="content-container">
