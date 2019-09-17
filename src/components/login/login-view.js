@@ -9,15 +9,16 @@ class Login extends Component {
 
 		this.state = {
 			email: "",
-			password: "",
-			isLogged: false
+			password: ""
 		};
+
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	render() {
-		const isLogged = this.state.isLogged;
+		document.login = this;
 
-		if (isLogged) {
+		if (this.props.isAuthenticated) {
 			return <Redirect to="/"/>;
 		}
 
@@ -55,9 +56,9 @@ class Login extends Component {
 		});
 	}
 
-	handleSubmit = (e) => {
+	handleSubmit(e) {
 		e.preventDefault();
-		// Check if username and password are valid
+		this.props.action("hola");
 	}
 }
 

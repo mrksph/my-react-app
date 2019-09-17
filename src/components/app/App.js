@@ -3,18 +3,16 @@ import logo from '../../logo.svg';
 import './App.css';
 
 import Header from "../header";
-import AppRouter from "../../routes/Routes";
+import {Redirect, Route, Switch} from "react-router-dom";
+import Home from "../home";
+import Login from "../login";
+import Register from "../register";
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			nav: {
-				history: props.history,
-				location: props.location,
-				match: props.match
-			},
 			isAuthenticated: false,
 			testimonials: [
 				{
@@ -32,20 +30,37 @@ class App extends Component {
 				}
 			]
 		};
+
+		this.handleTest = this.handleTest.bind(this);
 	}
 
-	userHasAuthenticated = authenticated => {
-		this.setState({
-			isAuthenticated: authenticated
-		})
+	handleTest(data) {
+		this.setState({isAuthenticated: true});
 	}
 
 	render() {
+		document.app = this;
+
+		const PrivateRoute = ({component: Component, ...rest}) => {
+			return <Route {...rest} render={(props) => (
+				this.state.isAuthenticated === true
+					? <Component {...props} />
+					: <Redirect to="/login"/>
+			)}/>
+		}
 
 		return (
 			<div className="App">
 				<Header/>
-				<AppRouter/>
+				<Switch>
+					<PrivateRoute path="/" exact component={Home}/>
+					<Route path="/login"
+								 render={
+									 props => <Login action={this.handleTest}
+																	 isAuthenticated={this.state.isAuthenticated}/>
+								 }/>
+					<Route path="/register" component={Register}/>
+				</Switch>
 			</div>
 		);
 	}
