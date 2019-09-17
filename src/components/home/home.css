@@ -18,7 +18,7 @@
     display: inline-block;
     width: 100%;
     padding: 16px;
-    box-shadow: 0 0 8px 0 rgba(150, 150, 150, 0.8);
+    box-shadow: 0 2px 8px 0 rgba(150, 150, 150, 0.8);
 }
 
 .content-container .list-container {

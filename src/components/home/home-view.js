@@ -2,6 +2,20 @@ import React, {Component} from "react"
 import './home.css';
 import TodoItem from "../todo-item";
 import TodoDetails from "../todo-details/todo-details-view";
+import {connect} from "react-redux";
+import {createTodo} from "../../actions";
+
+const getAllTodos = (todos) => {
+	return todos;
+}
+
+const mapDispatchToProps = {
+	createTodo
+};
+
+const mapStateToProps = state => ({
+	todos: getAllTodos(state.todos)
+});
 
 class Home extends Component {
 
@@ -31,7 +45,6 @@ class Home extends Component {
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.createTodo = this.createTodo.bind(this);
 		this.handleActionTodoItem = this.handleActionTodoItem.bind(this);
-		this.handleDetailsClick = this.handleDetailsClick.bind(this);
 	}
 
 	handleActionTodoItem(data) {
@@ -43,17 +56,15 @@ class Home extends Component {
 	createTodo(event) {
 		event.preventDefault();
 
-		const todos = this.state.todos;
+	//	const todos = this.state.todos;
 
 		const myObj = {
-			id: todos.length,
 			title: this.state.title,
-			description: this.state.description,
-			isSelected: false
+			description: this.state.description
 		};
-
+		this.props.createTodo(myObj);
 		this.setState({title: '', description: ''});
-		this.setState({todos: [...todos, myObj]});
+		//this.setState({todos: [...todos, myObj]});
 	}
 
 	handleInputChange(event) {
@@ -66,12 +77,10 @@ class Home extends Component {
 		});
 	}
 
-	handleDetailsClick(event) {
-	}
-
 	render() {
-		const detailsItem = this.state.todos.find(item => item.id === this.state.selected);
+		document.home = this;
 
+		const detailsItem = this.state.todos.find(item => item.id === this.state.selected);
 
 		return (
 			<div className="content-container">
@@ -92,7 +101,7 @@ class Home extends Component {
 					<h2>List</h2>
 					<div className="todo-list">
 						{
-							this.state.todos.map((item, index) => {
+							this.props.todos.map((item, index) => {
 								return (
 									<TodoItem key={index} id={index} todo={item} action={this.handleActionTodoItem}
 														isSelected={this.state.selected === item.id}/>
@@ -112,4 +121,4 @@ class Home extends Component {
 	}
 }
 
-export default Home;
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

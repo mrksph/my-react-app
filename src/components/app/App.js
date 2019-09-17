@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import logo from '../../logo.svg';
 import './App.css';
 
 import Header from "../header";
@@ -14,23 +13,7 @@ class App extends Component {
 
 		this.state = {
 			isAuthenticated: false,
-			testimonials: [
-				{
-					quote: "Estamos empezando a usar React en nuestra empresa y por ahora nos esta gustando bastante. Es bastante fácil de aprender y nos aporta muchas ventajas.",
-					logo: logo,
-					author: "Perelli Peperoni"
-				}, {
-					quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida lorem sapien, vulputate vestibulum lorem suscipit eget.",
-					logo: logo,
-					author: "Ipsum Lorem"
-				}, {
-					quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In odio ligula, tempor sit amet lorem nec, lobortis scelerisque risus.",
-					logo: logo,
-					author: "Laurin Hills"
-				}
-			]
 		};
-
 		this.handleTest = this.handleTest.bind(this);
 	}
 
