@@ -8,7 +8,7 @@ class TodoItem extends Component {
     }
 
     handleOnClick(event) {
-        this.props.action(this);
+        this.props.action(this.props.todo);
     }
 
     render() {

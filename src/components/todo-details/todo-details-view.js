@@ -1,9 +1,20 @@
 import React, {Component} from 'react';
 import './todo-details.css';
+import {connect} from "react-redux";
+
+
+const getAllTodos = (todos) => {
+	return todos;
+}
+
+const mapStateToProps = state => ({
+	todos: getAllTodos(state.todos)
+});
+
 
 class TodoDetails extends Component {
 	render() {
-		const details = this.props.todo || {};
+		const details = this.props.todos.list.find(item => item.id === this.props.todos.selected) || {};
 
 		if (Object.keys(details).length === 0) {
 			return <div>
@@ -18,4 +29,4 @@ class TodoDetails extends Component {
 	}
 }
 
-export default TodoDetails;
+export default connect(mapStateToProps, null)(TodoDetails);

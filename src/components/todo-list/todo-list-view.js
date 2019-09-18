@@ -1,18 +1,71 @@
 import React, {Component} from 'react';
-import TestimonyItem from "../todo-item";
+import TodoItem from "../todo-item";
+import {connect} from "react-redux";
+import {selectTodo} from "../../actions";
 
-class TestimonialsList extends Component {
+const getAllTodos = (todos) => {
+	return todos;
+}
+
+const mapStateToProps = state => ({
+	todos: getAllTodos(state.todos)
+});
+
+
+const mapDispatchToProps = {
+	selectTodo
+};
+
+
+class TodoList extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			selected: -1
+		};
+
+		this.handleActionTodoItem = this.handleActionTodoItem.bind(this);
+	}
+
+	handleActionTodoItem(todo) {
+		this.props.selectTodo({id: todo.id});
+		/*
+				if (this.state.selected !== data.props.id) {
+					this.setState({
+						selected: data.props.id
+					});
+				} else {
+					this.setState({
+						selected: -1
+					});
+				}
+				*/
+	}
+
 	render() {
-		const testimonials = this.props.testimonials;
+		document.todoList = this;
 
-		const testimonialItems = testimonials.map((testimony, index) => {
-			return <TestimonyItem key={index} testimony={testimony}/>
-		});
+		if (this.props.todos.list.length !== 0) {
+			const todoItems =
+				this.props.todos.list.map((item, index) => {
+					return (
+						<TodoItem key={index}
+											todo={item}
+											action={this.handleActionTodoItem}
+											isSelected={this.props.todos.selected === item.id}/>
+					)
+				})
 
-		return <div className="testimonialsList">
-			{testimonialItems}
-		</div>;
+			return <div className="todosList">
+				{todoItems}
+			</div>;
+		} else {
+			return <div className="todosList">
+				Lista de Notas vacía! Crea una para verla aquí
+			</div>;
+		}
 	}
 }
 
-export default TestimonialsList;
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

@@ -9,3 +9,7 @@ export const createTodo = ({title, description}) => ({
 });
 
 
+export const selectTodo = ({id}) => ({
+	type: 'SELECT_TODO',
+	id: id
+});
