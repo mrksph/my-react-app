@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import logo from "../../logo.svg";
 import './header.css';
+import {connect} from "react-redux";
 
 class Header extends Component {
 
@@ -15,4 +16,4 @@ class Header extends Component {
 
 }
 
-export default Header;
+export default connect()(Header);

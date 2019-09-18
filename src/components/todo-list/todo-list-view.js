@@ -21,26 +21,11 @@ class TodoList extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			selected: -1
-		};
-
 		this.handleActionTodoItem = this.handleActionTodoItem.bind(this);
 	}
 
 	handleActionTodoItem(todo) {
 		this.props.selectTodo({id: todo.id});
-		/*
-				if (this.state.selected !== data.props.id) {
-					this.setState({
-						selected: data.props.id
-					});
-				} else {
-					this.setState({
-						selected: -1
-					});
-				}
-				*/
 	}
 
 	render() {
