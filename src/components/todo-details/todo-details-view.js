@@ -17,7 +17,7 @@ class TodoDetails extends Component {
 		const details = this.props.todos.list.find(item => item.id === this.props.todos.selected) || {};
 
 		if (Object.keys(details).length === 0) {
-			return <div>
+			return <div className="empty-view">
 				<p>Selecciona una Nota para ver sus detalles!</p>
 			</div>
 		}
