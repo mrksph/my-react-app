@@ -1,6 +1,20 @@
 import React, {Component} from 'react';
 import './login.css';
 import {Link, Redirect} from "react-router-dom";
+import {connect} from "react-redux";
+import {logIn} from "../../actions";
+
+const mapStateToProps = state => ({
+	session: isAuthenticated(state.session)
+});
+
+const isAuthenticated = (state) => {
+	return state;
+};
+
+const mapDispatchToProps = {
+	logIn
+};
 
 class Login extends Component {
 
@@ -18,8 +32,8 @@ class Login extends Component {
 	render() {
 		document.login = this;
 
-		if (this.props.isAuthenticated) {
-			return <Redirect to="/"/>;
+		if(this.props.session.isAuthenticated) {
+			return <Redirect to="/"/>
 		}
 
 		return (
@@ -54,12 +68,12 @@ class Login extends Component {
 		this.setState({
 			[event.target.id]: event.target.value
 		});
-	}
+	};
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.action("hola");
+		this.props.logIn();
 	}
 }
 
-export default Login;
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

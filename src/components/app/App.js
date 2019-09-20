@@ -6,47 +6,48 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import Home from "../home";
 import Login from "../login";
 import Register from "../register";
+import {connect} from "react-redux";
+
+
+const mapStateToProps = state => ({
+	session: isAuthenticated(state.session)
+});
+
+const isAuthenticated = (state) => {
+	return state;
+};
+
 
 class App extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			isAuthenticated: false,
-		};
-		this.handleTest = this.handleTest.bind(this);
-	}
-
-	handleTest(data) {
-		this.setState({isAuthenticated: true});
-	}
 
 	render() {
+		console.log("APP: " + this.props.session.isAuthenticated);
+
 		document.app = this;
 
-		const PrivateRoute = ({component: Component, ...rest}) => {
+		const PrivateRoute = ({component: Component, isAuth, ...rest}) => {
 			return <Route {...rest} render={(props) => (
-				this.state.isAuthenticated === true
-					? <Component {...props} />
-					: <Redirect to="/login"/>
+				isAuth ? <Component {...props} /> : <Redirect to="/login"/>
 			)}/>
-		}
+		};
 
 		return (
 			<div className="App">
 				<Header/>
 				<Switch>
-					<PrivateRoute path="/" exact component={Home}/>
-					<Route path="/login"
-								 render={
-									 props => <Login action={this.handleTest}
-																	 isAuthenticated={this.state.isAuthenticated}/>
-								 }/>
-					<Route path="/register" component={Register}/>
+					<PrivateRoute exact
+												path="/"
+												component={Home}
+												isAuth={this.props.session.isAuthenticated}/>
+
+					<Route path="/register"
+								 component={Register}/>
+								 <Route path="/login"
+								 component={Login}/>
 				</Switch>
 			</div>
 		);
 	}
 }
 
-export default App;
+export default connect(mapStateToProps, null)(App);

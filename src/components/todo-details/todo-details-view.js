@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 
 const getAllTodos = (todos) => {
 	return todos;
-}
+};
 
 const mapStateToProps = state => ({
 	todos: getAllTodos(state.todos)

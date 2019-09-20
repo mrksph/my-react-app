@@ -5,17 +5,15 @@ import {selectTodo} from "../../actions";
 
 const getAllTodos = (todos) => {
 	return todos;
-}
+};
 
 const mapStateToProps = state => ({
 	todos: getAllTodos(state.todos)
 });
 
-
 const mapDispatchToProps = {
 	selectTodo
 };
-
 
 class TodoList extends Component {
 	constructor(props) {
@@ -40,7 +38,7 @@ class TodoList extends Component {
 											action={this.handleActionTodoItem}
 											isSelected={this.props.todos.selected === item.id}/>
 					)
-				})
+				});
 
 			return <div className="todosList">
 				{todoItems}
