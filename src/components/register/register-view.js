@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './register.css';
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 
 class Register extends Component {
 
@@ -24,4 +25,4 @@ class Register extends Component {
 	}
 }
 
-export default Register;
+export default connect()(Register);

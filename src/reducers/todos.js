@@ -33,6 +33,6 @@ const todos = (state = initialState, action) => {
 		default:
 			return state;
 	}
-}
+};
 
 export default todos;

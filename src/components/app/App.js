@@ -4,8 +4,8 @@ import './App.css';
 import Header from "../header";
 import {Redirect, Route, Switch} from "react-router-dom";
 import Home from "../home";
-import Login from "../login";
 import Register from "../register";
+import Login from "../login"
 import {connect} from "react-redux";
 
 
@@ -35,15 +35,9 @@ class App extends Component {
 			<div className="App">
 				<Header/>
 				<Switch>
-					<PrivateRoute exact
-												path="/"
-												component={Home}
-												isAuth={this.props.session.isAuthenticated}/>
-
-					<Route path="/register"
-								 component={Register}/>
-								 <Route path="/login"
-								 component={Login}/>
+					<PrivateRoute exact path="/" component={Home} isAuth={this.props.session.isAuthenticated}/>
+					<Route component={Login}/>
+					<Route component={Register}/>
 				</Switch>
 			</div>
 		);
