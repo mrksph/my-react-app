@@ -1,4 +1,4 @@
-let nextTodoId = 1;
+///let nextTodoId = 1;
 
 export const createTodo = ({title, description}) => ({
 	type: 'CREATE_TODO',

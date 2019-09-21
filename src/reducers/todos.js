@@ -18,7 +18,7 @@ const todos = (state = initialState, action) => {
 				list: [
 					...state.list,
 					{
-						id: action.id,
+						id: state.list.length++,
 						title: action.title,
 						description: action.description,
 						isSelected: action.isSelected
