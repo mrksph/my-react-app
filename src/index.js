@@ -8,8 +8,34 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from './reducers/index'
 
-const store = createStore(reducer);
+const loadState = () => {
+	try {
+		const serializedState = localStorage.getItem('state');
+		if (serializedState === null) {
+			return undefined;
+		}
+		return JSON.parse(serializedState);
+	} catch (err) {
+		return undefined;
+	}
+};
 
+const saveState = (state) => {
+	try {
+		const serializedState = JSON.stringify(state);
+		localStorage.setItem('state', serializedState);
+	} catch (err) {
+		// ignore write errors
+		return err;
+	}
+};
+
+const store = createStore(reducer, loadState());
+store.subscribe(() => {
+	saveState({
+		todos: store.getState().todos
+	});
+});
 ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
