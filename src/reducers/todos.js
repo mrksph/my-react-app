@@ -3,7 +3,7 @@ const initialState = {
 		{
 			id: 0,
 			title: "Primera nota de ejemplo",
-			description: "Vamos a describir mi puesto de trabajo el cual parece muy bueno pero falta una cosa.",
+			description: "EDITADO VAMOS A VER SI ESTO FUNCIONA a describir mi puesto de trabajo el cual parece muy bueno pero falta una cosa.",
 			isSelected: false
 		}
 	],
