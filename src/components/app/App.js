@@ -36,8 +36,8 @@ class App extends Component {
 				<Header/>
 				<Switch>
 					<PrivateRoute exact path="/" component={Home} isAuth={this.props.session.isAuthenticated}/>
-					<Route component={Login}/>
-					<Route component={Register}/>
+					<Route exact path="/login" component={Login}/>
+					<Route exact path="/register" component={Register}/>
 				</Switch>
 			</div>
 		);

@@ -6,6 +6,8 @@ import {connect} from "react-redux";
 class Register extends Component {
 
 	render() {
+		document.register = this;
+
 		return (
 			<div className="register-container">
 				<h2>Register Page</h2>
@@ -25,4 +27,4 @@ class Register extends Component {
 	}
 }
 
-export default connect()(Register);
+export default connect(null, null)(Register);

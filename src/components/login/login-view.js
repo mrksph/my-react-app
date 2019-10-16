@@ -54,7 +54,7 @@ class Login extends Component {
 
 					<button type="submit" disabled={!this.validateForm()}>Entrar</button>
 				</form>
-				<Link className="link-to-register" to="/register">No tienes cuenta? Registrate</Link>
+				<Link className="link-to-register" to="/register">No tienes cuenta? Regístrate</Link>
 			</div>
 		);
 	}
